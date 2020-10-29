@@ -1,0 +1,7 @@
+com\sxxh\cdsp\service\impl\CustomerDetailServiceImpl.class
+com\sxxh\cdsp\vo\CustomerDetailQueryVo.class
+com\sxxh\cdsp\dao\CustomerDetailMapper.class
+com\sxxh\cdsp\po\CustomerDetail.class
+com\sxxh\cdsp\service\ICustomerDetailService.class
+com\sxxh\cdsp\app\CustomerApplication.class
+com\sxxh\cdsp\controller\CustomerDetailController.class

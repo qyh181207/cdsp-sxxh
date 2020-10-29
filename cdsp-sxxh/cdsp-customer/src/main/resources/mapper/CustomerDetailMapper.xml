@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxxh.cdsp.dao.CustomerDetailMapper">
+
+    <resultMap id="personalCustomerDetailResultMap" type="com.sxxh.cdsp.po.CustomerDetail">
+        <result column="CUST_NM" property="custApltn" />
+        <result column="CUST_TYP_CD" property="custTypCd" />
+        <result column="LN_STG_CD" property="lnStgCd" />
+        <result column="TUCH_PHN_NBR" property="tuchPhnNbr" />
+        <result column="CUST_RSDT_ADDR" property="custAddr" />
+        <result column="FSTM_HAPN_BIZ_DT" property="fstmHapnBizDt" />
+        <result column="BRTH_DT" property="brthdyDt" />
+        <result column="RGSTR_DT" property="rgstrDt" />
+        <result column="RGSTR_CAPTL" property="rgstrCaptl" />
+        <result column="RGSTR_ADDR" property="rgstrAddr" />
+        <result column="BLTO_NTECM_INDS_CLSF_CD" property="bltoNtecmIndsClsfCd" />
+        <result column="CUST_MGR_APLTN" property="servCstmgNm" />
+    </resultMap>
+    
+    <resultMap id="enterpriseCustomerDetailResultMap" type="com.sxxh.cdsp.po.CustomerDetail">
+        <result column="CUST_APLTN" property="custApltn" />
+        <result column="CUST_TYP_CD" property="custTypCd" />
+        <result column="LN_STG_CD" property="lnStgCd" />
+        <result column="TUCH_PHN_NBR" property="tuchPhnNbr" />
+        <result column="MANG_ADDR" property="custAddr" />
+        <result column="FSTM_HAPN_BIZ_DT" property="fstmHapnBizDt" />
+        <result column="BRTH_DT" property="brthdyDt" />
+        <result column="RGSTR_DT" property="rgstrDt" />
+        <result column="RGSTR_CAPTL" property="rgstrCaptl" />
+        <result column="RGSTR_ADDR" property="rgstrAddr" />
+        <result column="BLTO_NTECM_INDS_CLSF_CD" property="bltoNtecmIndsClsfCd" />
+        <result column="CUST_MGR_APLTN" property="servCstmgNm" />
+    </resultMap>
+
+    <!-- 个人客户详情查询 -->
+    <select id="getPersonalCustomerDetail" resultMap="personalCustomerDetailResultMap">
+        select
+			CUST_NM,CUST_TYP_CD,LN_STG_CD,TUCH_PHN_NBR,CUST_RSDT_ADDR,FSTM_HAPN_BIZ_DT,BRTH_DT,CUST_MGR_APLTN
+		from
+			psnl_cust_basc_info
+		where
+			ECIF_CUST_NO = #{ecifCustNo}
+			and SERV_CSTMG_NO = #{servCstMGNo}
+		;
+    </select>
+
+    <!-- 企业客户详情查询 -->
+     <select id="getEnterpriseCustomerDetail" resultMap="enterpriseCustomerDetailResultMap" >
+        select 
+			CUST_APLTN,LN_STG_CD,TUCH_PHN_NBR,MANG_ADDR,RGSTR_DT,RGSTR_CAPTL,RGSTR_ADDR,BLTO_NTECM_INDS_CLSF_CD,CUST_MGR_APLTN
+		from 
+			epcst_bsc_info
+		where 
+			ECIF_CUST_NO = #{ecifCustNo}
+			and SERV_CSTMG_NO = #{servCstMGNo}
+		;
+     </select>
+
+
+
+</mapper>
